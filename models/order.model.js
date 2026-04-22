@@ -16,9 +16,20 @@ const orderSchema = new mongoose.Schema(
       },
     ],
     totalAmount: Number,
+
+    // 🆕 NEW FIELDS
+    address: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+
     status: {
       type: String,
-      default: "placed",
+      default: "pending",
     },
   },
   { timestamps: true }
