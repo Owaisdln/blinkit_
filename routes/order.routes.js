@@ -3,6 +3,8 @@ import {
   placeOrder,
   getOrders,
 } from "../controllers/order.controller.js";
+
+// ✅ FIXED IMPORT (no curly braces)
 import protect from "../middleware/auth.middleware.js";
 
 const router = express.Router();
