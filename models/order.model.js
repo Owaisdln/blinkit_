@@ -6,6 +6,7 @@ const orderSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+
     items: [
       {
         product: {
@@ -15,16 +16,18 @@ const orderSchema = new mongoose.Schema(
         quantity: Number,
       },
     ],
+
     totalAmount: Number,
 
-    // 🆕 NEW FIELDS
+    // ✅ FIXED (no crash now)
     address: {
       type: String,
-      required: true,
+      default: "",
     },
+
     phone: {
       type: String,
-      required: true,
+      default: "",
     },
 
     status: {

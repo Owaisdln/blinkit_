@@ -6,12 +6,6 @@ export const placeOrder = async (req, res) => {
     const userId = req.user.id;
     const { address, phone } = req.body;
 
-    if (!address || !phone) {
-      return res.status(400).json({
-        message: "Address and phone are required",
-      });
-    }
-
     const cart = await Cart.findOne({ user: userId }).populate(
       "items.product"
     );
@@ -29,8 +23,8 @@ export const placeOrder = async (req, res) => {
       user: userId,
       items: cart.items,
       totalAmount,
-      address,
-      phone,
+      address: address || "",
+      phone: phone || "",
     });
 
     // clear cart
